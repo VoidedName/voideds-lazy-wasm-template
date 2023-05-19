@@ -4,6 +4,7 @@ import * as path from "path";
 
 function wasmWatcher(): PluginOption {
     let watcher: ChildProcess;
+
     return [
         {
             name: "wasm-watcher-serve",
@@ -13,13 +14,14 @@ function wasmWatcher(): PluginOption {
                     "cargo",
                     [
                         "watch",
-                        "-C", "wasm",
                         "-i", ".gitignore",
-                        "-s", "wasm-pack build --debug --target web --out-dir ../pkg --out-name assembly"
-                    ], {
-                        cwd: process.cwd(),
-                        stdio: ["ignore", "ignore", "inherit"]
-                    })
+                        "-s", "wasm-pack build --debug --target web --out-dir ../pkg --out-name assembly",
+                    ],
+                    {
+                        cwd: path.join(process.cwd(), "wasm"),
+                        stdio: ["ignore", "ignore", "inherit"],
+                    }
+                );
             },
         },
         {
@@ -33,18 +35,22 @@ function wasmWatcher(): PluginOption {
                         "--release",
                         "--target", "web",
                         "--out-dir", "../pkg",
-                        "--out-name", "assembly"
-                    ], {
+                        "--out-name", "assembly",
+                    ],
+                    {
                         cwd: path.join(process.cwd(), "wasm"),
-                        stdio: ["ignore", "ignore", "inherit"]
-                    })
+                        stdio: ["ignore", "ignore", "inherit"],
+                    }
+                );
+
                 return new Promise((resolve, reject) => {
-                    watcher.on("exit", (e) => e === 0 ? resolve() : reject(e))
+                    watcher.on("exit", (e) => e === 0 ? resolve() : reject(e));
                 })
             },
-        }]
+        },
+    ];
 }
 
 export default defineConfig({
-    plugins: [wasmWatcher()]
+    plugins: [wasmWatcher()],
 })
