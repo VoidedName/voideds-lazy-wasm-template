@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "cd wasm && wasm-pack build --release --target web --out-dir ../pkg --out-name assembly && cd .. && tsc && vite build"
+    "build": "vite build"
   },
   "devDependencies": {
     "typescript": "^5.0.4",
