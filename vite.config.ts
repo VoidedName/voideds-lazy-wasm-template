@@ -13,12 +13,9 @@ function wasmWatcher(): PluginOption {
                     "cargo",
                     [
                         "watch",
-                        "-C",
-                        "wasm",
-                        "-i",
-                        ".gitignore",
-                        "-s",
-                        "wasm-pack build --debug --target web --out-dir ../pkg --out-name assembly"
+                        "-C", "wasm",
+                        "-i", ".gitignore",
+                        "-s", "wasm-pack build --debug --target web --out-dir ../pkg --out-name assembly"
                     ], {
                         cwd: process.cwd(),
                         stdio: ["ignore", "ignore", "inherit"]
@@ -34,12 +31,9 @@ function wasmWatcher(): PluginOption {
                     [
                         "build",
                         "--release",
-                        "--target",
-                        "web",
-                        "--out-dir",
-                        "../pkg",
-                        "--out-name",
-                        "assembly"
+                        "--target", "web",
+                        "--out-dir", "../pkg",
+                        "--out-name", "assembly"
                     ], {
                         cwd: path.join(process.cwd(), "wasm"),
                         stdio: ["ignore", "ignore", "inherit"]
