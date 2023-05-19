@@ -1,5 +1,5 @@
 ## About
-This template was inspired by the ancient rust wasm-webpack (still build on webpack4). What's different? I build it on Vite, I'm sure there is a better watcher setup than the one I botched together, but I lack sufficient knowledge about Vite or its plugin eco system and... got better things to do :) Feel free to ping me on Discord or submit a PR. 
+This template was inspired by the ancient rust wasm-webpack (still build on webpack4). What's different? I build it on Vite, Feel free to ping me on Discord or submit a PR. 
 
 ## How to install
 **!Important**: WASM-PACK (with default features) requires a perl installation.
@@ -10,7 +10,6 @@ Alternatively, you can disable the default features of wasm-pack. (Feature opens
 
 * `npm i` to install all the npm stuff
 * `npm run dev` to start up vites dev server
-* `npm run watch-wasm` to start the watcher for wasm, required for the "hotreload"
 * `npm run build` will build this piece of art :)
 
 ## What does each thing do?
