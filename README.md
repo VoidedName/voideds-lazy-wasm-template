@@ -20,7 +20,7 @@ Alternatively, you can disable the default features of wasm-pack. (Feature opens
 
 * `tsconfig.json` config for ts. What, did you really think this wouldn't be TS? 
 
-* `index.html` entry point vite uses, vite doesn't appear to watch it and I am not going to bother trying to make it. PR please if you want to fix it :)
+* `index.html` entry point vite uses
 
 * The `src` folder contains your TS code.
 
